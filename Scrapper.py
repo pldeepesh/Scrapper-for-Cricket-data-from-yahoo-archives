@@ -64,9 +64,7 @@ for i in xrange(2,15):
 				
 				result.append(str(col[4].text).strip())
 
-
 dictionary = {'sno':sno,'time':time,'team_name':team_name,'venue':venue,'Match_result':result}
-
 df = pd.DataFrame(dictionary)
 # print df.head()
 
@@ -91,6 +89,7 @@ for i in df['Match_result']:
 		first_batting.append('1')
 	else:
 		first_batting.append('NA')
+
 df['first batting'] = first_batting
 
 #Figuring out the winning team
@@ -117,7 +116,7 @@ df['Team 2'] = team2
 #
 ## machine learning code comes here ##
 
-#taking input form the user
+#Taking input form the user
 
 count=1
 print 'Select first team'
@@ -130,7 +129,6 @@ _passing_list.append(_unique_team1[a-1])
 
 
 count = 1
-
 print 'Select seccond team'
 _unique_team2 = df['Team 2'].unique()
 for i in _unique_team2:
@@ -141,7 +139,6 @@ _passing_list.append(_unique_team2[a-1])
 
 
 count = 1
-
 print 'Select country'
 _unique_city = df['city'].unique()
 for i in _unique_city:
@@ -149,13 +146,6 @@ for i in _unique_city:
 	count = count+1
 a=int(raw_input('Enter your choice number: '))
 _passing_list.append(_unique_city[a-1])
-
-# print _passing_list
-print clf.predict(_passing_list)
-
-
-
-
 
 #writing it to a file ##
 
